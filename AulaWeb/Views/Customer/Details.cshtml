@@ -1,0 +1,17 @@
+﻿@model AulaWeb.Models.Customer
+@{
+    ViewBag.Title = Model.name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.name</h2>
+
+<ul>
+    <li>Membership Type: @Model.MemberShipType.Name</li>
+    @if (Model.BirthDate.HasValue)
+    {
+        <li>Birthdate: @Model.BirthDate.Value.ToShortDateString()</li>
+    }
+</ul> 
+
+
