@@ -22,6 +22,8 @@ namespace AulaWeb.Models
     {
         public DbSet<Customer> CUSTOMERS { get; set; }
         public DbSet<Movies> Movies { get; set; }
+        public DbSet<MembershipType> MemberShipType { get; set; }
+        public DbSet<MoviesGenre> MoviesGenre { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

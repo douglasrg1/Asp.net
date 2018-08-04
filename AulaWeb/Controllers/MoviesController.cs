@@ -26,13 +26,48 @@ namespace AulaWeb.Controllers
             var movie = dbcontext.Movies.Include(e => e.MovieGenre).ToList();
             return View(movie);
         }
-        public ActionResult Details(int id)
+        public ActionResult newmovie()
         {
-            var movie = dbcontext.Movies.Include(i => i.MovieGenre).Where(c=>c.Id == id).SingleOrDefault();
+            var genres = dbcontext.MoviesGenre.ToList();
+            var movieviewmodel = new NewMovieViewModel
+            {
+                moviesGenre = genres
+            };
+            return View("Save",movieviewmodel);
+        }
+        [HttpPost]
+        public ActionResult Save(Movies movies)
+        {
+            if (movies.Id == 0)
+            {
+                movies.DateAdded = DateTime.Now;
+                dbcontext.Movies.Add(movies);
+            }
+            else
+            {
+                var moviesindb = dbcontext.Movies.Single(m => m.Id == movies.Id);
+                moviesindb.Name = movies.Name;
+                moviesindb.MoviesGenreId = movies.MoviesGenreId;
+                moviesindb.NumberInStock = movies.NumberInStock;
+                moviesindb.ReleaseDate = movies.ReleaseDate;
+            }
+
+            dbcontext.SaveChanges();
+            return RedirectToAction("Index", "Movies");
+        }
+        public ActionResult Edit(int id)
+        {
+            var movie = dbcontext.Movies.Single(m => m.Id == id);
+
             if (movie == null)
                 return HttpNotFound();
 
-            return View(movie);
+            var movieviewmodel = new NewMovieViewModel
+            {
+                Movies = movie,
+                moviesGenre = dbcontext.MoviesGenre.ToList()
+            };
+            return View("Save",movieviewmodel);
         }
     }
 }
