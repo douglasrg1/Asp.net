@@ -1,7 +1,9 @@
 ﻿using AulaWeb.Models;
 using AulaWeb.ViewModels;
 using System;
+using System.Data.Entity;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,18 +12,27 @@ namespace AulaWeb.Controllers
 {
     public class MoviesController : Controller
     {
+        private ApplicationDbContext dbcontext;
+        public MoviesController()
+        {
+            dbcontext = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            dbcontext.Dispose();
+        }
         public ActionResult Index()
         {
-            var movie = GetMovies();
+            var movie = dbcontext.Movies.Include(e => e.MovieGenre).ToList();
             return View(movie);
         }
-        private IEnumerable<Movies> GetMovies()
+        public ActionResult Details(int id)
         {
-            return new List<Movies>
-            {
-                new Movies {Id = 1, Name = "Filme 1" },
-                new Movies {Id = 2, Name = "Filme 2" }
-            };
+            var movie = dbcontext.Movies.Include(i => i.MovieGenre).Where(c=>c.Id == id).SingleOrDefault();
+            if (movie == null)
+                return HttpNotFound();
+
+            return View(movie);
         }
     }
 }
