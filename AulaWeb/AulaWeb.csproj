@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -231,10 +232,6 @@
     <Compile Include="Migrations\201808031447073_PopulationMemebershipType.Designer.cs">
       <DependentUpon>201808031447073_PopulationMemebershipType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808031547187_RemoveBirthdateToCustomer.cs" />
-    <Compile Include="Migrations\201808031547187_RemoveBirthdateToCustomer.Designer.cs">
-      <DependentUpon>201808031547187_RemoveBirthdateToCustomer.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201808031556376_AddBirthDateToCustomer.cs" />
     <Compile Include="Migrations\201808031556376_AddBirthDateToCustomer.Designer.cs">
       <DependentUpon>201808031556376_AddBirthDateToCustomer.cs</DependentUpon>
@@ -348,9 +345,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808031447073_PopulationMemebershipType.resx">
       <DependentUpon>201808031447073_PopulationMemebershipType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808031547187_RemoveBirthdateToCustomer.resx">
-      <DependentUpon>201808031547187_RemoveBirthdateToCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808031556376_AddBirthDateToCustomer.resx">
       <DependentUpon>201808031556376_AddBirthDateToCustomer.cs</DependentUpon>
