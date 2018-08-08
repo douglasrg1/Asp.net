@@ -33,8 +33,20 @@ namespace AulaWeb.Controllers
             return View(ViewModel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewmodel = new NewCustomerViewModel
+                {
+                    customer = customer,
+                    membershipType = dbcontext.MemberShipType.ToList()
+                };
+
+                return View("New", viewmodel);
+            }
+
             if(customer.id == 0)
                 dbcontext.CUSTOMERS.Add(customer);
             else

@@ -31,13 +31,26 @@ namespace AulaWeb.Controllers
             var genres = dbcontext.MoviesGenre.ToList();
             var movieviewmodel = new NewMovieViewModel
             {
+                Movies = new Movies(),
                 moviesGenre = genres
             };
             return View("Save",movieviewmodel);
         }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movies movies)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewmovie = new NewMovieViewModel
+                {
+                    Movies = movies,
+                    moviesGenre = dbcontext.MoviesGenre.ToList()
+                };
+
+                return View("Save", viewmovie);
+            }
             if (movies.Id == 0)
             {
                 movies.DateAdded = DateTime.Now;

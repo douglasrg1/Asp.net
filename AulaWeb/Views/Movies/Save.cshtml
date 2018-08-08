@@ -8,23 +8,33 @@
 
 @using (Html.BeginForm("Save", "Movies"))
 {
+    @Html.ValidationSummary(true,"Fix the following errors")
     <div class="form-group">
         @Html.LabelFor(l => l.Movies.Name, "Name:")
         @Html.TextBoxFor(l => l.Movies.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(v=>v.Movies.Name)
     </div>
     <div class="form-group">
         @Html.LabelFor(l => l.Movies.ReleaseDate, "Release Date:")
         @Html.TextBoxFor(l => l.Movies.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(v=>v.Movies.ReleaseDate)
     </div>
     <div class="form-group">
         @Html.LabelFor(l => l.Movies.MoviesGenreId, "Genres:")
         @Html.DropDownListFor(l => l.Movies.MoviesGenreId, new SelectList(Model.moviesGenre, "Id", "name"), "Genre", new { @class = "form-control" })
+        @Html.ValidationMessageFor(v=>v.Movies.MoviesGenreId)
     </div>
     <div class="form-group">
         @Html.LabelFor(l => l.Movies.NumberInStock, "Number in Stock:")
         @Html.TextBoxFor(l => l.Movies.NumberInStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(v=>v.Movies.NumberInStock)
     </div>
     @Html.HiddenFor(m => m.Movies.Id)
+    @Html.AntiForgeryToken()
+
     <button type="submit" class="btn btn-primary">Save</button>
 }
 
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+}

@@ -17,9 +17,11 @@ namespace AulaWeb.Models
         [Required]
         public DateTime DateAdded { get; set; }
         [Required]
-        public DateTime ReleaseDate { get; set; }
+        public DateTime? ReleaseDate { get; set; }
         [Required]
-        public int NumberInStock { get; set; }
+        [Display(Name = "Number in Stock")]
+        [Range(1,20)]
+        public int? NumberInStock { get; set; }
         public MoviesGenre MovieGenre { get; set; }
     }
 }

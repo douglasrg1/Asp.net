@@ -15,6 +15,7 @@ namespace AulaWeb.Models
         public bool IsSubscribedToNewsLetter { get; set; }
         public MembershipType MemberShipType { get; set; }
         public int MemberShipTypeId { get; set; }
+        [Min18YearsIfAMember]
         public DateTime? BirthDate { get; set; }
     }
 }
