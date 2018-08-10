@@ -1,4 +1,6 @@
-﻿using AulaWeb.Models;
+﻿using AulaWeb.Dto;
+using AulaWeb.Models;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,64 +18,69 @@ namespace AulaWeb.Controllers.Api
             dbcontext = new ApplicationDbContext();
         }
         //Get//api//customer
-        public IEnumerable<Customer> GetCustoers()
+        public IHttpActionResult GetCustomer()
         {
-            return dbcontext.CUSTOMERS.ToList();
+            var customer = dbcontext.CUSTOMERS.ToList().Select(Mapper.Map<Customer, CustomerDto>);
+            return Ok(customer);
         }
         //Get//Api//Customer/1
-        public Customer GetCustomer(int Id)
+        public IHttpActionResult GetCustomer(int Id)
         {
             var Customer = dbcontext.CUSTOMERS.SingleOrDefault(c => c.id == Id);
 
             if (Customer == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+               return NotFound();
 
-            return Customer;
+            return Ok(Mapper.Map<Customer,CustomerDto>( Customer));
         }
 
         //Post//api//customers
         [HttpPost]
-        public Customer CreateCustomer(Customer customer)
+        public IHttpActionResult CreateCustomer(CustomerDto customerdto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
 
+            var customer = Mapper.Map<CustomerDto, Customer>(customerdto);
             dbcontext.CUSTOMERS.Add(customer);
             dbcontext.SaveChanges();
 
-            return customer;
+            customerdto.id = customer.id;
+
+            return Created(new Uri(Request.RequestUri + "/"+ customer.id),customerdto);
         }
 
         //Put//Api//customer/1
         [HttpPut]
-        public void UpdateCustomers(int Id,Customer customer)
+        public IHttpActionResult UpdateCustomers(int Id,CustomerDto customerdto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
 
             var customerindb = dbcontext.CUSTOMERS.SingleOrDefault(c => c.id == Id);
 
             if (customerindb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
 
-            customerindb.BirthDate = customer.BirthDate;
-            customerindb.IsSubscribedToNewsLetter = customer.IsSubscribedToNewsLetter;
-            customerindb.MemberShipTypeId = customer.MemberShipTypeId;
-            customerindb.name = customer.name;
+            Mapper.Map<CustomerDto, Customer>(customerdto, customerindb);
 
             dbcontext.SaveChanges();
+
+            return Ok();
         }
 
         //delete/api/customer/1
         [HttpDelete]
-        public void DeleteCustomer(int Id)
+        public IHttpActionResult DeleteCustomer(int Id)
         {
             var customerindb = dbcontext.CUSTOMERS.SingleOrDefault(c => c.id == Id);
             if (customerindb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                NotFound();
 
             dbcontext.CUSTOMERS.Remove(customerindb);
             dbcontext.SaveChanges();
+
+            return Ok();
         }
     }
 }
