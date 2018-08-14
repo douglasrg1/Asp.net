@@ -27,11 +27,13 @@ namespace AulaWeb.Controllers
             var membershiptype = dbcontext.MemberShipType.ToList();
             var ViewModel = new NewCustomerViewModel
             {
+                customer = new Customer(),
                 membershipType = membershiptype
             };
 
             return View(ViewModel);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
