@@ -65,8 +65,7 @@ namespace AulaWeb.Controllers
         }
         public ActionResult Index()
         {
-            var customers = dbcontext.CUSTOMERS.Include(c =>c.MemberShipType ).ToList();
-            return View(customers);
+            return View();
         }
         public ActionResult Edit(int id)
         {
