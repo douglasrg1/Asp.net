@@ -3,6 +3,7 @@ using AulaWeb.Models;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -20,8 +21,12 @@ namespace AulaWeb.Controllers.Api
         //Get//api//customer
         public IHttpActionResult GetCustomer()
         {
-            var customer = dbcontext.CUSTOMERS.ToList().Select(Mapper.Map<Customer, CustomerDto>);
-            return Ok(customer);
+            var customerDtos = dbcontext.CUSTOMERS
+                .Include(c =>c.MemberShipType)
+                .ToList()
+                .Select(Mapper.Map<Customer, CustomerDto>);
+
+            return Ok(customerDtos);
         }
         //Get//Api//Customer/1
         public IHttpActionResult GetCustomer(int Id)

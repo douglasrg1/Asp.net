@@ -17,5 +17,6 @@ namespace AulaWeb.Dto
         public int MemberShipTypeId { get; set; }
         [Min18YearsIfAMember]
         public DateTime? BirthDate { get; set; }
+        public MembershipTypeDto MemberShipType { get; set; }
     }
 }
