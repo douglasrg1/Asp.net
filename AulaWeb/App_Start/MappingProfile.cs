@@ -24,6 +24,10 @@ namespace AulaWeb.App_Start
             Mapper.CreateMap<MembershipType, MembershipTypeDto>();
             Mapper.CreateMap<MembershipTypeDto, MembershipType>()
                 .ForMember(c => c.Id, opt => opt.Ignore());
+
+            Mapper.CreateMap<MoviesGenre, MoviesGenreDto>();
+            Mapper.CreateMap<MoviesGenreDto, MoviesGenre>()
+                .ForMember(c => c.Id, opt => opt.Ignore());
         }
     }
 }

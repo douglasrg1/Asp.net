@@ -23,8 +23,7 @@ namespace AulaWeb.Controllers
         }
         public ActionResult Index()
         {
-            var movie = dbcontext.Movies.Include(e => e.MovieGenre).ToList();
-            return View(movie);
+            return View();
         }
         public ActionResult newmovie()
         {
