@@ -8,6 +8,10 @@ namespace AulaWeb.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name ="Driving License")]
+        public string drivingLicense { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -64,6 +68,10 @@ namespace AulaWeb.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name ="Driving License")]
+        public string drivingLicense { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
