@@ -23,8 +23,12 @@ namespace AulaWeb.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            if (User.IsInRole(Rolename.canManageMovies))
+                return View();
+
+            return View("ReadOnly");
         }
+        [Authorize(Roles =Rolename.canManageMovies)]
         public ActionResult newmovie()
         {
             var genres = dbcontext.MoviesGenre.ToList();
@@ -33,7 +37,7 @@ namespace AulaWeb.Controllers
                 Movies = new Movies(),
                 moviesGenre = genres
             };
-            return View("Save",movieviewmodel);
+            return View(movieviewmodel);
         }
 
         [HttpPost]
@@ -48,7 +52,7 @@ namespace AulaWeb.Controllers
                     moviesGenre = dbcontext.MoviesGenre.ToList()
                 };
 
-                return View("Save", viewmovie);
+                return View("newmovie", viewmovie);
             }
             if (movies.Id == 0)
             {
@@ -79,7 +83,7 @@ namespace AulaWeb.Controllers
                 Movies = movie,
                 moviesGenre = dbcontext.MoviesGenre.ToList()
             };
-            return View("Save",movieviewmodel);
+            return View("newmovie", movieviewmodel);
         }
     }
 }

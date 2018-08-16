@@ -278,6 +278,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Rolename.cs" />
     <Compile Include="Models\Validations\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movies.cs" />
     <Compile Include="Models\MoviesGenre.cs" />
@@ -529,7 +530,8 @@
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customer\New.cshtml" />
-    <Content Include="Views\Movies\Save.cshtml" />
+    <Content Include="Views\Movies\newmovie.cshtml" />
+    <Content Include="Views\Movies\ReadOnly.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
