@@ -12,6 +12,10 @@ namespace AulaWeb.Models
         [Required]
         [Display(Name ="Driving License")]
         public string drivingLicense { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Phone { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -68,6 +72,10 @@ namespace AulaWeb.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [StringLength(50)]
+        public string Phone { get; set; }
+
         [Required]
         [Display(Name ="Driving License")]
         public string drivingLicense { get; set; }

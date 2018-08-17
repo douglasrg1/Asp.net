@@ -152,7 +152,7 @@ namespace AulaWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,drivingLicense = model.drivingLicense };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,drivingLicense = model.drivingLicense,Phone = model.Phone };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
