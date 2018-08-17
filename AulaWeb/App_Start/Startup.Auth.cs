@@ -55,8 +55,8 @@ namespace AulaWeb
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "269209877026362",
-               appSecret: "2b0b0947ade023d71a027f3d00dd2d05");
+               appId: "218157219043974",
+               appSecret: "b47849e666f4b4e475cf47e50af7e1df");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
