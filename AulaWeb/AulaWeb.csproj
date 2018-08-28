@@ -294,6 +294,10 @@
     <Compile Include="Migrations\201808281132146_addNumberAvailabletomovie.Designer.cs">
       <DependentUpon>201808281132146_addNumberAvailabletomovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808281303548_ChangeDateReturnedForNullabreTrueinRentals.cs" />
+    <Compile Include="Migrations\201808281303548_ChangeDateReturnedForNullabreTrueinRentals.Designer.cs">
+      <DependentUpon>201808281303548_ChangeDateReturnedForNullabreTrueinRentals.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -621,6 +625,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808281132146_addNumberAvailabletomovie.resx">
       <DependentUpon>201808281132146_addNumberAvailabletomovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808281303548_ChangeDateReturnedForNullabreTrueinRentals.resx">
+      <DependentUpon>201808281303548_ChangeDateReturnedForNullabreTrueinRentals.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

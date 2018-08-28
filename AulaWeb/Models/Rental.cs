@@ -14,7 +14,7 @@ namespace AulaWeb.Models
         [Required]
         public Movies Movie { get; set; }
         public DateTime DateRented { get; set; }
-        public DateTime DateReturned { get; set; }
+        public DateTime? DateReturned { get; set; }
 
     }
 }
