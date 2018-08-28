@@ -26,10 +26,10 @@ namespace AulaWeb.Controllers.Api
 
             foreach(var movie in Movies)
             {
-                if (movie.numberAvaible == 0)
+                if (movie.NumberAvailable == 0)
                     return BadRequest("Movie is not avaible");
 
-                movie.numberAvaible--;
+                movie.NumberAvailable--;
 
                 var rental = new Rental
                 {

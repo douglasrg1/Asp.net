@@ -286,13 +286,13 @@
     <Compile Include="Migrations\201808171237129_addphonenumberinloginuser.Designer.cs">
       <DependentUpon>201808171237129_addphonenumberinloginuser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808281032547_addnumberavailabletomovies.cs" />
-    <Compile Include="Migrations\201808281032547_addnumberavailabletomovies.Designer.cs">
-      <DependentUpon>201808281032547_addnumberavailabletomovies.cs</DependentUpon>
+    <Compile Include="Migrations\201808281130211_addrental.cs" />
+    <Compile Include="Migrations\201808281130211_addrental.Designer.cs">
+      <DependentUpon>201808281130211_addrental.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808281034278_addRental.cs" />
-    <Compile Include="Migrations\201808281034278_addRental.Designer.cs">
-      <DependentUpon>201808281034278_addRental.cs</DependentUpon>
+    <Compile Include="Migrations\201808281132146_addNumberAvailabletomovie.cs" />
+    <Compile Include="Migrations\201808281132146_addNumberAvailabletomovie.Designer.cs">
+      <DependentUpon>201808281132146_addNumberAvailabletomovie.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -616,11 +616,11 @@
     <EmbeddedResource Include="Migrations\201808171237129_addphonenumberinloginuser.resx">
       <DependentUpon>201808171237129_addphonenumberinloginuser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808281032547_addnumberavailabletomovies.resx">
-      <DependentUpon>201808281032547_addnumberavailabletomovies.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808281130211_addrental.resx">
+      <DependentUpon>201808281130211_addrental.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808281034278_addRental.resx">
-      <DependentUpon>201808281034278_addRental.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808281132146_addNumberAvailabletomovie.resx">
+      <DependentUpon>201808281132146_addNumberAvailabletomovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

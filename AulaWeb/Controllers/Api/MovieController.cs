@@ -23,7 +23,7 @@ namespace AulaWeb.Controllers.Api
         //GET/api/movie
         public IHttpActionResult GetMovies(string query)
         {
-            var moviesquery = dbcontext.Movies.Include(m =>m.MovieGenre).Where( m => m.numberAvaible > 0);
+            var moviesquery = dbcontext.Movies.Include(m =>m.MovieGenre).Where( m => m.NumberAvailable > 0);
 
             if (!string.IsNullOrWhiteSpace(query))
                 moviesquery = moviesquery.Where(m => m.Name.Contains(query));

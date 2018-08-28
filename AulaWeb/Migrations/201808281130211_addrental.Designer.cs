@@ -7,13 +7,13 @@ namespace AulaWeb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addnumberavailabletomovies : IMigrationMetadata
+    public sealed partial class addrental : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addnumberavailabletomovies));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addrental));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808281032547_addnumberavailabletomovies"; }
+            get { return "201808281130211_addrental"; }
         }
         
         string IMigrationMetadata.Source
