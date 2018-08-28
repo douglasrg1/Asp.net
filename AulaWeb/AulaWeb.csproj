@@ -286,6 +286,14 @@
     <Compile Include="Migrations\201808171237129_addphonenumberinloginuser.Designer.cs">
       <DependentUpon>201808171237129_addphonenumberinloginuser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808281032547_addnumberavailabletomovies.cs" />
+    <Compile Include="Migrations\201808281032547_addnumberavailabletomovies.Designer.cs">
+      <DependentUpon>201808281032547_addnumberavailabletomovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808281034278_addRental.cs" />
+    <Compile Include="Migrations\201808281034278_addRental.Designer.cs">
+      <DependentUpon>201808281034278_addRental.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -607,6 +615,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808171237129_addphonenumberinloginuser.resx">
       <DependentUpon>201808171237129_addphonenumberinloginuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808281032547_addnumberavailabletomovies.resx">
+      <DependentUpon>201808281032547_addnumberavailabletomovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808281034278_addRental.resx">
+      <DependentUpon>201808281034278_addRental.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

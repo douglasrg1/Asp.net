@@ -14,7 +14,9 @@
         <label>Movie</label>
         <input type="text" value="" class="form-control" />
     </div>
+    <ul id="movies" class="list-group">
 
+    </ul>
     <button class="btn btn-primary">Submit</button>
 </form>
 
@@ -39,6 +41,8 @@
                     name: 'customers',
                     display: 'name',
                     source: customers
+                }).on("typeahead:select", function (e, customer) {
+                    vm.customerId = customer.id;
                 });
         });
     </script>
