@@ -19,12 +19,17 @@ namespace AulaWeb.Controllers.Api
             dbcontext = new ApplicationDbContext();
         }
         //Get//api//customer
-        public IHttpActionResult GetCustomer()
+        public IHttpActionResult GetCustomer(string query = null)
         {
-            var customerDtos = dbcontext.CUSTOMERS
-                .Include(c =>c.MemberShipType)
-                .ToList()
-                .Select(Mapper.Map<Customer, CustomerDto>);
+
+            var customerQuery = dbcontext.CUSTOMERS.Include(c => c.MemberShipType);
+                
+                
+
+            if (!string.IsNullOrWhiteSpace(query))
+                customerQuery = customerQuery.Where(c => c.name.Contains(query));
+
+            var customerDtos = customerQuery.ToList().Select(Mapper.Map<Customer, CustomerDto>);
 
             return Ok(customerDtos);
         }

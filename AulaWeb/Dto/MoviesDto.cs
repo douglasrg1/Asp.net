@@ -21,6 +21,7 @@ namespace AulaWeb.Dto
         [Required]
         [Range(1, 20)]
         public int? NumberInStock { get; set; }
+        public int? NumberAvaible { get; set; }
         public MoviesGenreDto MovieGenre { get; set; }
     }
 }

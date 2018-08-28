@@ -21,9 +21,15 @@ namespace AulaWeb.Controllers.Api
         }
 
         //GET/api/movie
-        public IHttpActionResult GetMovies()
+        public IHttpActionResult GetMovies(string query)
         {
-            var movies = dbcontext.Movies.Include(m =>m.MovieGenre).ToList().Select(Mapper.Map<Movies, MoviesDto>);
+            var moviesquery = dbcontext.Movies.Include(m =>m.MovieGenre).Where( m => m.numberAvaible > 0);
+
+            if (!string.IsNullOrWhiteSpace(query))
+                moviesquery = moviesquery.Where(m => m.Name.Contains(query));
+
+            var movies = moviesquery.ToList().Select(Mapper.Map<Movies, MoviesDto>);
+
             return Ok(movies);
         }
 
