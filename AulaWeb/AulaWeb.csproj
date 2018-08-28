@@ -286,14 +286,6 @@
     <Compile Include="Migrations\201808171237129_addphonenumberinloginuser.Designer.cs">
       <DependentUpon>201808171237129_addphonenumberinloginuser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808271303427_addRental.cs" />
-    <Compile Include="Migrations\201808271303427_addRental.Designer.cs">
-      <DependentUpon>201808271303427_addRental.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808271305543_addentityRental.cs" />
-    <Compile Include="Migrations\201808271305543_addentityRental.Designer.cs">
-      <DependentUpon>201808271305543_addentityRental.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -615,12 +607,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808171237129_addphonenumberinloginuser.resx">
       <DependentUpon>201808171237129_addphonenumberinloginuser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808271303427_addRental.resx">
-      <DependentUpon>201808271303427_addRental.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808271305543_addentityRental.resx">
-      <DependentUpon>201808271305543_addentityRental.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
